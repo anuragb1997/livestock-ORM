@@ -28,7 +28,7 @@ const my_local_db_uri = "mysql://root:root@localhost:3306/livestock";
 const actual_db = "postgres://postgres:Anurag@123@localhost/livestock";
 
 function connectToPostgres() {
-	const sequelize = new Sequelize(actual_db, {
+	const sequelize = new Sequelize(my_local_db_uri, {
 		dialect: "postgres",
 	});
 	try {

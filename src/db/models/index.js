@@ -145,6 +145,16 @@ module.exports = (sequelize) => {
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
+
+	Shed.hasMany(Animal, {
+		foreignKey: {
+			allowNull: false,
+		},
+		onDelete: "CASCADE",
+		onUpdate: "CASCADE",
+	});
+	Animal.belongsTo(Shed);
+
 	Weight.belongsTo(Animal);
 
 	Shed.hasMany(Food, {
