@@ -23,7 +23,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:5000/api/user/get-users"
+				"url": "http://localhost:8000/api/user/get-users"
 			},
 			"response": []
 		},
@@ -96,6 +96,132 @@
 				"method": "GET",
 				"header": [],
 				"url": "http://localhost:5000/api/animal/get-animals"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/shed/get-sheds",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5000/api/shed/get-sheds"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/shed/create-shed/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"shed test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/shed/create-shed/"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/shed/get-shed/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5000/api/shed/get-shed/1"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/shed/update-shed/2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"shed moon\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/shed/update-shed/2"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/shed/delete-shed/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:5000/api/shed/delete-shed/1"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/doctor/create-doctor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test\",\r\n    \"contact\":1234567890\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/doctor/create-doctor"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/doctor/get-doctors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5000/api/doctor/get-doctors"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/doctor/update-doctor/1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test\",\r\n    \"contact\":6462478224\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/doctor/update-doctor/1"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/doctor/delete-doctor/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:5000/api/doctor/delete-doctor/1"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/doctor/get-doctor/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5000/api/doctor/get-doctor/1"
 			},
 			"response": []
 		}
