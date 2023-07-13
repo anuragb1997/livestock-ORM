@@ -16,6 +16,15 @@ class UserService {
 		}
 	}
 
+	async getUserByEmail(email) {
+		try {
+			const user = await this.models.User.findOne({ where: { email } });
+			return user;
+		} catch (err) {
+			return err;
+		}
+	}
+
 	async getUserByid(id) {
 		try {
 			const user = await this.models.User.findOne({ where: { id } });

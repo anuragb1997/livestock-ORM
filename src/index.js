@@ -19,6 +19,8 @@ app.use(passport.initialize());
 const routes = require("./routes");
 const UserService = require("./services/UserService");
 const AnimalService = require("./services/AnimalService");
+const ShedService = require("./services/ShedService");
+const DoctorService = require("./services/DoctorService");
 
 app.get("/", (req, res) => {
 	return res.status(200).json("API IS WORKING");
@@ -45,7 +47,12 @@ config.development.postgres.client = connectToPostgres();
 // console.log(config.development.postgres.client);
 const userService = new UserService(config.development.postgres.client);
 const animalService = new AnimalService(config.development.postgres.client);
-app.use("/api", routes({ userService, animalService }));
+const shedService = new ShedService(config.development.postgres.client);
+const doctorService = new DoctorService(config.development.postgres.client);
+app.use(
+	"/api",
+	routes({ userService, animalService, shedService, doctorService })
+);
 
 //app start
 const appStart = () => {
