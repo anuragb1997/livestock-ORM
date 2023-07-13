@@ -34,10 +34,11 @@ module.exports = () => {
 		}
 	});
 
-	router.post("/create-animal/:user_id", async (req, res) => {
+	router.post("/create-animal/:user_id/:shed_id", async (req, res) => {
 		try {
 			const animal = await animalService.createAnimal(
 				req.params.user_id,
+				req.params.shed_id,
 				req.body.name,
 				req.body.type,
 				req.body.breed,
@@ -57,7 +58,8 @@ module.exports = () => {
 
 	router.put("/update-animal/:animal_id", async (req, res) => {
 		try {
-			const animal = await animalService.createAnimal(
+			console.log(req.body);
+			const animal = await animalService.updateAnimalById(
 				req.params.animal_id,
 				req.body.name,
 				req.body.type,

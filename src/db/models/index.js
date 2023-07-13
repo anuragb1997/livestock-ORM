@@ -145,6 +145,7 @@ module.exports = (sequelize) => {
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
+	Weight.belongsTo(Animal);
 
 	Shed.hasMany(Animal, {
 		foreignKey: {
@@ -154,8 +155,6 @@ module.exports = (sequelize) => {
 		onUpdate: "CASCADE",
 	});
 	Animal.belongsTo(Shed);
-
-	Weight.belongsTo(Animal);
 
 	Shed.hasMany(Food, {
 		foreignKey: {
@@ -187,5 +186,5 @@ module.exports = (sequelize) => {
 	// Doctor.belongsToMany(Animal, { through: "Doctor_Animal" });
 	// Animal.belongsToMany(Doctor, { through: "Doctor_Animal" });
 
-	sequelize.sync({ alter: true });
+	sequelize.sync();
 };

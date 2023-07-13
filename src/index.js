@@ -21,6 +21,10 @@ const UserService = require("./services/UserService");
 const AnimalService = require("./services/AnimalService");
 const ShedService = require("./services/ShedService");
 const DoctorService = require("./services/DoctorService");
+const FoodService = require("./services/FoodService");
+const ExpenseService = require("./services/ExpenseService");
+const WeightService = require("./services/WeightService");
+const VaccineService = require("./services/VaccineService");
 
 app.get("/", (req, res) => {
 	return res.status(200).json("API IS WORKING");
@@ -30,8 +34,11 @@ const my_local_db_uri = "mysql://root:root@localhost:3306/livestock";
 const actual_db = "postgres://postgres:Anurag@123@localhost/livestock";
 
 function connectToPostgres() {
-	const sequelize = new Sequelize(actual_db, {
+	const sequelize = new Sequelize(my_local_db_uri, {
 		dialect: "postgres",
+		define: {
+			freezeTableName: true,
+		},
 	});
 	try {
 		sequelize.authenticate();
@@ -49,9 +56,22 @@ const userService = new UserService(config.development.postgres.client);
 const animalService = new AnimalService(config.development.postgres.client);
 const shedService = new ShedService(config.development.postgres.client);
 const doctorService = new DoctorService(config.development.postgres.client);
+const foodService = new FoodService(config.development.postgres.client);
+const expenseService = new ExpenseService(config.development.postgres.client);
+const weightService = new WeightService(config.development.postgres.client);
+const vaccineService = new VaccineService(config.development.postgres.client);
 app.use(
 	"/api",
-	routes({ userService, animalService, shedService, doctorService })
+	routes({
+		userService,
+		animalService,
+		shedService,
+		doctorService,
+		foodService,
+		expenseService,
+		weightService,
+		vaccineService,
+	})
 );
 
 //app start

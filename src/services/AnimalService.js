@@ -39,6 +39,7 @@ class AnimalService {
 
 	async createAnimal(
 		user_id,
+		shed_id,
 		name,
 		type,
 		breed,
@@ -63,6 +64,7 @@ class AnimalService {
 				height,
 				age,
 				UserId: user_id,
+				ShedId: shed_id,
 			});
 			return animal;
 		} catch (err) {

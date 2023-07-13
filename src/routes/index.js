@@ -19,6 +19,10 @@ const usersRoute = require("./users");
 const animalsRoute = require("./animals");
 const shedsRoute = require("./sheds");
 const doctorsRoute = require("./doctors");
+const foodsRoute = require("./foods");
+const expensesRoute = require("./expense");
+const weightsRoute = require("./weights");
+const vaccinesRoute = require("./vaccines");
 
 module.exports = (params) => {
 	const {
@@ -29,8 +33,12 @@ module.exports = (params) => {
 	const router = Router();
 	router.use("/user", usersRoute(params.userService));
 	router.use("/animal", animalsRoute(params.animalService));
-	router.use("/shed", shedsRoute(params.userService));
-	router.use("/doctor", doctorsRoute(params.animalService));
+	router.use("/shed", shedsRoute(params.shedService));
+	router.use("/doctor", doctorsRoute(params.doctorService));
+	router.use("/food", foodsRoute(params.foodService));
+	router.use("/expense", expensesRoute(params.expenseService));
+	router.use("/weight", weightsRoute(params.weightService));
+	router.use("/vaccine", vaccinesRoute(params.vaccineService));
 
 	// router.post("/sheds", insertShed);
 	// router.get("/get-shed", getsheds);
@@ -45,7 +53,7 @@ module.exports = (params) => {
 	// router.post("/animals", sendAnimal);
 	// router.put("/get-animal/:id", updateAnimal);
 	//ROUTES FOR THE EXPENSE TABLE
-	router.get("/get-expenses", getExpense);
-	router.post("/expenses", sendExpense);
+	// router.get("/get-expenses", getExpense);
+	// router.post("/expenses", sendExpense);
 	return router;
 };
