@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "c73de530-9296-4b3e-8e0a-615a8bfc9230",
+		"name": "animal_management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23557803"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/user/get-users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/user/get-users"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/user/create-user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"abc\",\r\n    \"password\": \"abc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/user/create-user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/user/update-user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"abc\",\r\n    \"password\": \"testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/user/update-user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/user/delete-user/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:5000/api/user/delete-user/2"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/animal/create-animal/2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"animal2\",\r\n\t\"type\": \"abc\",\r\n\t\"breed\": \"abc\",\r\n\t\"status\": \"abc\",\r\n\t\"sex\":\"M\",\r\n\t\"weight\": 123,\r\n\t\"ev\": 123,\r\n\t\"color\": \"abc\",\r\n\t\"height\": \"5' 11\",\r\n\t\"age\": 23\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/api/animal/create-animal/1"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/api/animal/get-animals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5000/api/animal/get-animals"
+			},
+			"response": []
+		}
+	]
+}
