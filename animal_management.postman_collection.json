@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c73de530-9296-4b3e-8e0a-615a8bfc9230",
+		"_postman_id": "365170e1-653f-43eb-aa28-e3ce8a4a3b36",
 		"name": "animal_management",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "23557803"
+		"_exporter_id": "20976929"
 	},
 	"item": [
 		{
@@ -294,7 +294,7 @@
 					"response": []
 				},
 				{
-					"name": "create food animal",
+					"name": "create food shed",
 					"request": {
 						"method": "POST",
 						"header": [],
