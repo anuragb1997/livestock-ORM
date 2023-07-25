@@ -47,6 +47,9 @@ module.exports = (sequelize) => {
 			age: {
 				type: DataTypes.BIGINT,
 			},
+			category: {
+				type: DataTypes.STRING,
+			},
 		},
 		{}
 	);
@@ -120,6 +123,29 @@ module.exports = (sequelize) => {
 		{}
 	);
 
+	const Pedigree = sequelize.define(
+		"Pedigree",
+		{
+			pedigree: {
+				type: DataTypes.STRING,
+			},
+		},
+		{}
+	);
+
+	const Todo = sequelize.define(
+		"Todo",
+		{
+			description: {
+				type: DataTypes.STRING,
+			},
+			deadline: {
+				type: DataTypes.DATE,
+			},
+		},
+		{}
+	);
+
 	User.hasMany(Animal, {
 		foreignKey: {
 			allowNull: false,
@@ -183,8 +209,23 @@ module.exports = (sequelize) => {
 	});
 	Vaccine.belongsTo(Animal);
 
-	// Doctor.belongsToMany(Animal, { through: "Doctor_Animal" });
-	// Animal.belongsToMany(Doctor, { through: "Doctor_Animal" });
+	User.hasMany(Pedigree, {
+		foreignKey: {
+			allowNull: false,
+		},
+		onDelete: "CASCADE",
+		onUpdate: "CASCADE",
+	});
+	Pedigree.belongsTo(User);
+
+	User.hasMany(Todo, {
+		foreignKey: {
+			allowNull: false,
+		},
+		onDelete: "CASCADE",
+		onUpdate: "CASCADE",
+	});
+	Todo.belongsTo(User);
 
 	sequelize.sync();
 };
