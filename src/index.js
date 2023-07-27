@@ -31,13 +31,12 @@ app.get("/", (req, res) => {
 });
 
 const my_local_db_uri = "mysql://root:root@localhost:3306/livestock";
-const my_local_postdb_uri =
-	"postgres://postgres:postgres@localhost:10000/livestock";
+const my_local_postdb_uri = "postgres://postgres:a@localhost:5432/livestock";
 
 const actual_db = "postgres://postgres:Anurag@123@localhost/livestock";
 
 function connectToPostgres() {
-	const sequelize = new Sequelize(my_local_postdb_uri, {
+	const sequelize = new Sequelize(my_local_db_uri, {
 		dialect: "postgres",
 		define: {
 			freezeTableName: true,

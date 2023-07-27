@@ -1,9 +1,15 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
-module.exports = (sequelize) => {
+module.exports = async (sequelize) => {
 	const User = sequelize.define(
 		"User",
 		{
+			// id: {
+			// 	type: DataTypes.INTEGER,
+			// 	allowNull: false,
+			// 	unique: true,
+			// 	primaryKey: true,
+			// },
 			email: {
 				type: DataTypes.STRING,
 			},
@@ -17,6 +23,12 @@ module.exports = (sequelize) => {
 	const Animal = sequelize.define(
 		"Animal",
 		{
+			// id: {
+			// 	type: DataTypes.INTEGER,
+			// 	allowNull: false,
+			// 	unique: true,
+			// 	primaryKey: true,
+			// },
 			name: {
 				type: DataTypes.STRING,
 			},
@@ -57,6 +69,12 @@ module.exports = (sequelize) => {
 	const Shed = sequelize.define(
 		"Shed",
 		{
+			// id: {
+			// 	type: DataTypes.INTEGER,
+			// 	allowNull: false,
+			// 	unique: true,
+			// 	primaryKey: true,
+			// },
 			name: {
 				type: DataTypes.STRING,
 			},
@@ -67,6 +85,12 @@ module.exports = (sequelize) => {
 	const Doctor = sequelize.define(
 		"Doctor",
 		{
+			// id: {
+			// 	type: DataTypes.INTEGER,
+			// 	allowNull: false,
+			// 	unique: true,
+			// 	primaryKey: true,
+			// },
 			name: {
 				type: DataTypes.STRING,
 			},
@@ -80,6 +104,12 @@ module.exports = (sequelize) => {
 	const Vaccine = sequelize.define(
 		"Vaccine",
 		{
+			// id: {
+			// 	type: DataTypes.INTEGER,
+			// 	allowNull: false,
+			// 	unique: true,
+			// 	primaryKey: true,
+			// },
 			name: {
 				type: DataTypes.STRING,
 			},
@@ -90,6 +120,12 @@ module.exports = (sequelize) => {
 	const Expense = sequelize.define(
 		"Expense",
 		{
+			// id: {
+			// 	type: DataTypes.INTEGER,
+			// 	allowNull: false,
+			// 	unique: true,
+			// 	primaryKey: true,
+			// },
 			description: {
 				type: DataTypes.STRING,
 			},
@@ -103,6 +139,12 @@ module.exports = (sequelize) => {
 	const Weight = sequelize.define(
 		"Weight",
 		{
+			// id: {
+			// 	type: DataTypes.INTEGER,
+			// 	allowNull: false,
+			// 	unique: true,
+			// 	primaryKey: true,
+			// },
 			weight: {
 				type: DataTypes.BIGINT,
 			},
@@ -113,6 +155,12 @@ module.exports = (sequelize) => {
 	const Food = sequelize.define(
 		"Food",
 		{
+			// id: {
+			// 	type: DataTypes.INTEGER,
+			// 	allowNull: false,
+			// 	unique: true,
+			// 	primaryKey: true,
+			// },
 			name: {
 				type: DataTypes.STRING,
 			},
@@ -126,6 +174,12 @@ module.exports = (sequelize) => {
 	const Pedigree = sequelize.define(
 		"Pedigree",
 		{
+			// id: {
+			// 	type: DataTypes.INTEGER,
+			// 	allowNull: false,
+			// 	unique: true,
+			// 	primaryKey: true,
+			// },
 			pedigree: {
 				type: DataTypes.STRING,
 			},
@@ -136,6 +190,12 @@ module.exports = (sequelize) => {
 	const Todo = sequelize.define(
 		"Todo",
 		{
+			// id: {
+			// 	type: DataTypes.INTEGER,
+			// 	allowNull: false,
+			// 	unique: true,
+			// 	primaryKey: true,
+			// },
 			description: {
 				type: DataTypes.STRING,
 			},
@@ -147,90 +207,54 @@ module.exports = (sequelize) => {
 	);
 
 	User.hasMany(Animal, {
-		foreignKey: {
-			allowNull: false,
-			// name: "myUserID",
-		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
 	Animal.belongsTo(User);
 
 	User.hasMany(Expense, {
-		foreignKey: {
-			allowNull: false,
-			// name: "myUserID",
-		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
 	Expense.belongsTo(User);
 
 	Animal.hasMany(Weight, {
-		foreignKey: {
-			allowNull: false,
-			// name: "myAnimalID",
-		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
 	Weight.belongsTo(Animal);
 
 	Shed.hasMany(Animal, {
-		foreignKey: {
-			allowNull: false,
-			// name: "myShedID",
-		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
 	Animal.belongsTo(Shed);
 
 	Shed.hasMany(Food, {
-		foreignKey: {
-			allowNull: false,
-			// name: "myShedID",
-		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
 	Food.belongsTo(Shed);
 
 	Doctor.hasMany(Vaccine, {
-		foreignKey: {
-			allowNull: false,
-			// name: "myDoctorID",
-		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
 	Vaccine.belongsTo(Doctor);
 
 	Animal.hasMany(Vaccine, {
-		foreignKey: {
-			allowNull: false,
-			// name: "myVaccineID",
-		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
 	Vaccine.belongsTo(Animal);
 
 	User.hasMany(Pedigree, {
-		foreignKey: {
-			allowNull: false,
-			// name: "myUserID",
-		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
 	Pedigree.belongsTo(User);
 
 	User.hasMany(Todo, {
-		foreignKey: {
-			allowNull: false,
-			// name: "myUserID",
-		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
