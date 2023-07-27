@@ -149,6 +149,7 @@ module.exports = (sequelize) => {
 	User.hasMany(Animal, {
 		foreignKey: {
 			allowNull: false,
+			name: "myUserID",
 		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
@@ -158,6 +159,7 @@ module.exports = (sequelize) => {
 	User.hasMany(Expense, {
 		foreignKey: {
 			allowNull: false,
+			name: "myUserID",
 		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
@@ -167,6 +169,7 @@ module.exports = (sequelize) => {
 	Animal.hasMany(Weight, {
 		foreignKey: {
 			allowNull: false,
+			name: "myAnimalID",
 		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
@@ -176,6 +179,7 @@ module.exports = (sequelize) => {
 	Shed.hasMany(Animal, {
 		foreignKey: {
 			allowNull: false,
+			name: "myShedID",
 		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
@@ -185,6 +189,7 @@ module.exports = (sequelize) => {
 	Shed.hasMany(Food, {
 		foreignKey: {
 			allowNull: false,
+			name: "myShedID",
 		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
@@ -194,6 +199,7 @@ module.exports = (sequelize) => {
 	Doctor.hasMany(Vaccine, {
 		foreignKey: {
 			allowNull: false,
+			name: "myDoctorID",
 		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
@@ -203,6 +209,7 @@ module.exports = (sequelize) => {
 	Animal.hasMany(Vaccine, {
 		foreignKey: {
 			allowNull: false,
+			name: "myVaccineID",
 		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
@@ -212,6 +219,7 @@ module.exports = (sequelize) => {
 	User.hasMany(Pedigree, {
 		foreignKey: {
 			allowNull: false,
+			name: "myUserID",
 		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
@@ -221,6 +229,7 @@ module.exports = (sequelize) => {
 	User.hasMany(Todo, {
 		foreignKey: {
 			allowNull: false,
+			name: "myUserID",
 		},
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
