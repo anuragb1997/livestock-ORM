@@ -37,7 +37,7 @@ const my_local_postdb_uri =
 const actual_db = "postgres://postgres:Anurag@123@localhost/livestock";
 
 function connectToPostgres() {
-	const sequelize = new Sequelize(my_local_postdb_uri, {
+	const sequelize = new Sequelize(actual_db, {
 		dialect: "postgres",
 		define: {
 			freezeTableName: true,
