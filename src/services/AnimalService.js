@@ -49,7 +49,8 @@ class AnimalService {
 		ev,
 		color,
 		height,
-		age
+		age,
+		category
 	) {
 		try {
 			const animal = await this.models.Animal.create({
@@ -63,6 +64,7 @@ class AnimalService {
 				color,
 				height,
 				age,
+				category,
 				UserId: user_id,
 				ShedId: shed_id,
 			});
@@ -83,7 +85,8 @@ class AnimalService {
 		ev,
 		color,
 		height,
-		age
+		age,
+		category
 	) {
 		try {
 			const animal = await this.models.Animal.update(
@@ -98,6 +101,7 @@ class AnimalService {
 					color,
 					height,
 					age,
+					category,
 				},
 				{ where: { id } }
 			);

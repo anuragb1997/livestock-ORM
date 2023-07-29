@@ -48,7 +48,8 @@ module.exports = () => {
 				req.body.ev,
 				req.body.color,
 				req.body.height,
-				req.body.age
+				req.body.age,
+				req.body.category
 			);
 			res.send(animal);
 		} catch (error) {
@@ -70,7 +71,8 @@ module.exports = () => {
 				req.body.ev,
 				req.body.color,
 				req.body.height,
-				req.body.age
+				req.body.age,
+				req.body.category
 			);
 			res.send(animal);
 		} catch (error) {
