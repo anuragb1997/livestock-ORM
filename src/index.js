@@ -25,6 +25,7 @@ const FoodService = require("./services/FoodService");
 const ExpenseService = require("./services/ExpenseService");
 const WeightService = require("./services/WeightService");
 const VaccineService = require("./services/VaccineService");
+const TodoService = require("./services/TodoService");
 
 app.get("/", (req, res) => {
 	return res.status(200).json("API IS WORKING");
@@ -62,6 +63,8 @@ const foodService = new FoodService(config.development.postgres.client);
 const expenseService = new ExpenseService(config.development.postgres.client);
 const weightService = new WeightService(config.development.postgres.client);
 const vaccineService = new VaccineService(config.development.postgres.client);
+const todoService = new TodoService(config.development.postgres.client);
+
 app.use(
 	"/api",
 	routes({
@@ -73,6 +76,7 @@ app.use(
 		expenseService,
 		weightService,
 		vaccineService,
+		todoService 
 	})
 );
 
