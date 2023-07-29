@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "365170e1-653f-43eb-aa28-e3ce8a4a3b36",
+		"_postman_id": "934a2b72-c7ea-493d-b094-bb3ce004766a",
 		"name": "animal_management",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "20976929"
@@ -223,7 +223,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"animal2\",\r\n\t\"type\": \"abc\",\r\n\t\"breed\": \"abc\",\r\n\t\"status\": \"abc\",\r\n\t\"sex\":\"M\",\r\n\t\"weight\": 123,\r\n\t\"ev\": 123,\r\n\t\"color\": \"abc\",\r\n\t\"height\": \"5' 11\",\r\n\t\"age\": 23\r\n}",
+							"raw": "{\r\n    \"name\": \"animalas2\",\r\n\t\"type\": \"abc\",\r\n\t\"breed\": \"abc\",\r\n\t\"status\": \"abc\",\r\n\t\"sex\":\"M\",\r\n\t\"weight\": 123,\r\n\t\"ev\": 123,\r\n\t\"color\": \"abc\",\r\n\t\"height\": \"5' 11\",\r\n\t\"age\": 23,\r\n    \"category\": \"abc\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -442,6 +442,29 @@
 						"method": "GET",
 						"header": [],
 						"url": "http://localhost:5000/api/vaccine//get-vaccines-by-doctor-id/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "todo",
+			"item": [
+				{
+					"name": "http://localhost:5000/api/todo/create-todo/1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"abc\",\n    \"deadline\": \"2019-04-28T14:45:15\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/todo/create-todo/1"
 					},
 					"response": []
 				}

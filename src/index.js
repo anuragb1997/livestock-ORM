@@ -25,6 +25,7 @@ const FoodService = require("./services/FoodService");
 const ExpenseService = require("./services/ExpenseService");
 const WeightService = require("./services/WeightService");
 const VaccineService = require("./services/VaccineService");
+const TodoService = require("./services/TodoService");
 
 app.get("/", (req, res) => {
 	return res.status(200).json("API IS WORKING");
@@ -36,7 +37,7 @@ const my_local_postdb_uri = "postgres://postgres:a@localhost:5432/livestock";
 const actual_db = "postgres://postgres:Anurag@123@localhost/livestock";
 
 function connectToPostgres() {
-	const sequelize = new Sequelize(my_local_db_uri, {
+	const sequelize = new Sequelize(actual_db, {
 		dialect: "postgres",
 		define: {
 			freezeTableName: true,
@@ -62,6 +63,8 @@ const foodService = new FoodService(config.development.postgres.client);
 const expenseService = new ExpenseService(config.development.postgres.client);
 const weightService = new WeightService(config.development.postgres.client);
 const vaccineService = new VaccineService(config.development.postgres.client);
+const todoService = new TodoService(config.development.postgres.client);
+
 app.use(
 	"/api",
 	routes({
@@ -73,6 +76,7 @@ app.use(
 		expenseService,
 		weightService,
 		vaccineService,
+		todoService 
 	})
 );
 
