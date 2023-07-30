@@ -26,6 +26,7 @@ const ExpenseService = require("./services/ExpenseService");
 const WeightService = require("./services/WeightService");
 const VaccineService = require("./services/VaccineService");
 const TodoService = require("./services/TodoService");
+const PedigreeService = require("./services/PedigreeService");
 
 app.get("/", (req, res) => {
 	return res.status(200).json("API IS WORKING");
@@ -64,6 +65,8 @@ const expenseService = new ExpenseService(config.development.postgres.client);
 const weightService = new WeightService(config.development.postgres.client);
 const vaccineService = new VaccineService(config.development.postgres.client);
 const todoService = new TodoService(config.development.postgres.client);
+const pedigreeService = new PedigreeService(config.development.postgres.client);
+
 
 app.use(
 	"/api",
@@ -76,7 +79,8 @@ app.use(
 		expenseService,
 		weightService,
 		vaccineService,
-		todoService 
+		todoService,
+		pedigreeService
 	})
 );
 

@@ -24,6 +24,7 @@ const expensesRoute = require("./expense");
 const weightsRoute = require("./weights");
 const vaccinesRoute = require("./vaccines");
 const todosRoute = require("./todos")
+const predigreesRoute = require("./pedigrees")
 
 module.exports = (params) => {
 	const {
@@ -41,6 +42,7 @@ module.exports = (params) => {
 	router.use("/weight", weightsRoute(params.weightService));
 	router.use("/vaccine", vaccinesRoute(params.vaccineService));
 	router.use("/todo", todosRoute(params.todoService));
+	router.use("/pedigree", predigreesRoute(params.pedigreeService));
 
 	// router.post("/sheds", insertShed);
 	// router.get("/get-shed", getsheds);

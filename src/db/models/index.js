@@ -247,12 +247,14 @@ module.exports = async (sequelize) => {
 		onUpdate: "CASCADE",
 	});
 	Vaccine.belongsTo(Animal);
-
+	
 	User.hasMany(Pedigree, {
 		onDelete: "CASCADE",
 		onUpdate: "CASCADE",
 	});
 	Pedigree.belongsTo(User);
+
+	
 
 	Shed.hasMany(Pedigree, {
 		onDelete: "CASCADE",

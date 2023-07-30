@@ -7,7 +7,7 @@ const config = require("../../config");
 module.exports = () => {
 	const pedigreeService = new PedigreeService(config.development.postgres.client);
 
-	router.get("/get-pedigree", async (req, res) => {
+	router.get("/get-pedigrees", async (req, res) => {
 		try {
 			const pedigree = await pedigreeService.getAllPedigree();
 			res.send(pedigree);
@@ -16,73 +16,43 @@ module.exports = () => {
 		}
 	});
 
-	router.get("/get-pedigree-by-user-id/:user_id", async (req, res) => {
+	router.get("/get-pedigree/:id", async (req, res) => {
 		try {
-			const pedigree = await pedigreeService.getPedigreeById(req.params.user_id);
+			const pedigree = await pedigreeService.getPedigreeById(req.params.id);
 			res.send(pedigree);
 		} catch (error) {
 			console.log(error);
 		}
 	});
 
-	router.get("/get-animal-by-id/:animal_id", async (req, res) => {
+	router.post("/create-pedigree/:user_id/:shed_id", async (req, res) => {
 		try {
-			const animal = await animalService.getAnimalById(req.params.animal_id);
-			res.send(animal);
-		} catch (error) {
-			console.log(error);
-		}
-	});
-
-	router.post("/create-animal/:user_id/:shed_id", async (req, res) => {
-		try {
-			const animal = await animalService.createAnimal(
+			const pedigree = await pedigreeService.createPedigree(
+				req.body.pedigreee,
 				req.params.user_id,
 				req.params.shed_id,
-				req.body.name,
-				req.body.type,
-				req.body.breed,
-				req.body.status,
-				req.body.sex,
-				req.body.weight,
-				req.body.ev,
-				req.body.color,
-				req.body.height,
-				req.body.age,
-				req.body.category
 			);
-			res.send(animal);
+			res.send(pedigree);
 		} catch (error) {
 			console.log(error);
 		}
 	});
 
-	router.put("/update-animal/:animal_id", async (req, res) => {
+	router.put("/update-pedigree/:id", async (req, res) => {
 		try {
-			console.log(req.body);
-			const animal = await animalService.updateAnimalById(
-				req.params.animal_id,
-				req.body.name,
-				req.body.type,
-				req.body.breed,
-				req.body.status,
-				req.body.sex,
-				req.body.weight,
-				req.body.ev,
-				req.body.color,
-				req.body.height,
-				req.body.age,
-				req.body.category
+			const pedigree = await pedigreeService.updatePedigreeId(
+				req.params.id,
+				req.body.pedigreee,
 			);
-			res.send(animal);
+			res.send(pedigree);
 		} catch (error) {
 			console.log(error);
 		}
 	});
 
-	router.delete("/delete-animal/:animal_id", async (req, res) => {
+	router.delete("/delete-pedigree/:id", async (req, res) => {
 		try {
-			const message = await animalService.deleteAnimal(req.params.animal_id);
+			const message = await pedigreeService.deletePedigree(req.params.id);
 			res.send(message);
 		} catch (error) {
 			console.log(error);

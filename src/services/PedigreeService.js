@@ -25,10 +25,14 @@ class PedigreeService {
 		}
 	}
 
-	async createPedigree(pedigreee) {
+	async createPedigree(pedigreee, user_id, shed_id) {
 		try {
+			
 			const pedigree = await this.models.Pedigree.create({
-				pedigreee
+				pedigreee,
+				UserId: user_id,
+				ShedId: shed_id,
+				
 			});
 			return pedigree;
 		} catch (err) {
@@ -51,7 +55,7 @@ class PedigreeService {
 	async deletePedigree(id) {
 		try {
 			await this.models.Pedigree.destroy({ where: { id } });
-			return `deleted doctor ${id}`;
+			return `deleted predigree ${id}`;
 		} catch (err) {
 			return err;
 		}
