@@ -180,7 +180,7 @@ module.exports = async (sequelize) => {
 			// 	unique: true,
 			// 	primaryKey: true,
 			// },
-			pedigree: {
+			pedigreee: {
 				type: DataTypes.STRING,
 			},
 		},
@@ -253,6 +253,13 @@ module.exports = async (sequelize) => {
 		onUpdate: "CASCADE",
 	});
 	Pedigree.belongsTo(User);
+
+	Shed.hasMany(Pedigree, {
+		onDelete: "CASCADE",
+		onUpdate: "CASCADE",
+	});
+	Pedigree.belongsTo(Shed);
+
 
 	User.hasMany(Todo, {
 		onDelete: "CASCADE",
