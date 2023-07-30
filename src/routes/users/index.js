@@ -35,9 +35,10 @@ module.exports = () => {
 		}
 	});
 
-	router.put("/update-user", async (req, res) => {
+	router.put("/update-user/:id", async (req, res) => {
 		try {
 			const user = await userService.updateUser(
+				req.params.id,
 				req.body.email,
 				req.body.password
 			);
@@ -47,6 +48,7 @@ module.exports = () => {
 		}
 	});
 
+	
 	router.delete("/delete-user/:email", async (req, res) => {
 		try {
 			const message = await userService.deleteUser(req.params.email);
