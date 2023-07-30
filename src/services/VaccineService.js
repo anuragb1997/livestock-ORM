@@ -60,6 +60,15 @@ class VaccineService {
 			return err;
 		}
 	}
+
+	async deleteVaccine(id) {
+		try {
+			await this.models.Vaccine.destroy({ where: { id } });
+			return `deleted Vaccine ${id}`;
+		} catch (err) {
+			return err;
+		}
+	}
 }
 
 module.exports = VaccineService;

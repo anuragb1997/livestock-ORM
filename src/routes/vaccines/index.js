@@ -60,5 +60,14 @@ module.exports = () => {
 		}
 	});
 
+	router.delete("/delete-vaccine/:id", async (req, res) => {
+		try {
+			const message = await vaccineService.deleteVaccine(req.params.id);
+			res.send(message);
+		} catch (error) {
+			console.log(error);
+		}
+	});
+
 	return router;
 };

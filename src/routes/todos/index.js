@@ -7,7 +7,7 @@ module.exports = () => {
 	const todoService = new TodoService(config.development.postgres.client);
 	router.get("/get-todos", async (req, res) => {
 		try {
-			const todos = await todoService.getTodoByid()
+			const todos = await todoService.getAllTodos	()
 			res.send(todos);
 		} catch (error) {
 			console.log(error);

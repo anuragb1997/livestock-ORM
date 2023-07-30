@@ -37,7 +37,7 @@ module.exports = () => {
 
 	router.put("/update-user/:id", async (req, res) => {
 		try {
-			const user = await userService.updateUser(
+			const user = await userService.updateUserById(
 				req.params.id,
 				req.body.email,
 				req.body.password
