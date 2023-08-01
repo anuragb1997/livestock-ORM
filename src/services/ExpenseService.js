@@ -41,7 +41,8 @@ class ExpenseService {
 		try {
 			const expense = await this.models.Expense.create({
 				description,
-				amount,
+				expenditure,
+				income,
 				UserId: user_id,
 			});
 			return expense;
@@ -55,7 +56,8 @@ class ExpenseService {
 			const expense = await this.models.Expense.update(
 				{
 					description,
-					amount,
+					expenditure,
+					income,
 				},
 				{ where: { id } }
 			);

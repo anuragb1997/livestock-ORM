@@ -20,6 +20,8 @@ module.exports = async (sequelize) => {
 		{}
 	);
 
+	
+
 	const Animal = sequelize.define(
 		"Animal",
 		{
@@ -129,7 +131,10 @@ module.exports = async (sequelize) => {
 			description: {
 				type: DataTypes.STRING,
 			},
-			amount: {
+			expenditure: {
+				type: DataTypes.BIGINT,
+			},
+			income: {
 				type: DataTypes.BIGINT,
 			},
 		},
