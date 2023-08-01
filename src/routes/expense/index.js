@@ -41,7 +41,9 @@ module.exports = () => {
 			const expense = await expenseService.createExpense(
 				req.params.user_id,
 				req.body.description,
-				req.body.amount
+				req.body.expenditure,
+				req.body.income
+
 			);
 			res.send(expense);
 		} catch (error) {
@@ -54,7 +56,9 @@ module.exports = () => {
 			const expense = await expenseService.updateFoodById(
 				req.params.id,
 				req.body.description,
-				req.body.amount
+				req.body.expenditure,
+				req.body.income
+
 			);
 			res.send(expense);
 		} catch (error) {
